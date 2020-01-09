@@ -1,5 +1,15 @@
 :root {
   /* Colors */
-  --background-default: gray;
+  --background-default: #5F784A;
+  --background-container: #CCC;
   --font-color: black;
+  --nav-logo: #816A53;
+  --link-active: #816A53;
+}
+
+body {
+  background: var(--background-default);
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
