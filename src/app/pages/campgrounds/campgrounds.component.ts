@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { CampgroundsService } from 'src/app/services/campgrounds.service';
+import { Campground } from 'src/app/models/camground.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-campgrounds',
@@ -6,5 +9,19 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./campgrounds.component.scss']
 })
 export class CampgroundsComponent {
-  imgUrl = 'https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1088&q=80'
+  campgrounds: Campground[]
+  campgroundsSubscription: Subscription
+
+  constructor (private campgroundsService: CampgroundsService) {}
+
+  ngOnInit () {
+    this.campgroundsSubscription = this.campgroundsService.getCampgrounds()
+      .subscribe(campgrounds => {
+        this.campgrounds = campgrounds
+      })
+  }
+
+  ngOnDestroy () {
+    this.campgroundsSubscription.unsubscribe()
+  }
 }
