@@ -1,0 +1,34 @@
+<form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+
+  <div>
+    <input name="email" [(ngModel)]="model.email" #email="ngModel" type="email" placeholder="Email" required
+      pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" />
+    <div [hidden]="email.valid || email.untouched">
+      <div *ngIf="email.errors?.required">
+        Email Is Required.
+      </div>
+      <div *ngIf="email.errors?.pattern">
+        Enter a Valid Email.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <input name="password" [(ngModel)]='model.password' type="password" placeholder="Password" #password="ngModel"
+      minlength="6" maxlength="12" required />
+    <div [hidden]="password.valid || password.untouched">
+      <div *ngIf="password.errors?.required">
+        Password Is Required.
+      </div>
+      <div *ngIf="password.errors?.minlength">
+        Password Must Be 6-12 Characters.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="serverErr">
+    {{ serverErr }}
+  </div>
+
+  <button class="btn" type="submit"
+    [disabled]="loginForm.invalid">Login</button>
+</form>

@@ -4,9 +4,10 @@
   </div>
   <div class="items-container">
     <div routerLink="/home" class="nav-item">Home</div>
-    <div routerLink="/campgrounds" class="nav-item">Campgrounds</div>
+    <div routerLink="/campgrounds" class="nav-item">Hiking Trails</div>
     <div class="nav-item">About</div>
-    <div class="nav-item">Blah</div>
-    <div class="nav-item">Blah</div>
+    <div routerLink="/auth/login" *ngIf='!userIsAuthenticated' class="nav-item">Login</div>
+    <div routerLink="/auth/register" *ngIf='!userIsAuthenticated' class="nav-item">Sign Up</div>
+    <div (click)='onLogout()' *ngIf='userIsAuthenticated' class="nav-item">Logout</div>
   </div>
 </div>

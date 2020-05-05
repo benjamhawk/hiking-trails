@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { CampgroundsService } from 'src/app/services/campgrounds.service';
-import { Campground } from 'src/app/models/camground.model';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core'
+import { CampgroundsService } from 'src/app/services/campgrounds.service'
+import { Campground } from 'src/app/models/camground.model'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-campgrounds',

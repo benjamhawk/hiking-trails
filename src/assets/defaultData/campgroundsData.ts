@@ -1,4 +1,4 @@
-import { Campground } from 'src/app/models/camground.model';
+import { Campground } from 'src/app/models/camground.model'
 
 export const defaultCampgroundsData: Campground[] = [
   {

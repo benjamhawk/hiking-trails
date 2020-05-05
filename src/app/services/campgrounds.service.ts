@@ -8,7 +8,7 @@ import { Campground } from '../models/camground.model'
 })
 export class CampgroundsService {
   private campgrounds: BehaviorSubject<Campground[]> = new BehaviorSubject(defaultCampgroundsData)
-  
+
   getCampgrounds (): Observable<Campground[]> {
     return this.campgrounds.asObservable()
   }
