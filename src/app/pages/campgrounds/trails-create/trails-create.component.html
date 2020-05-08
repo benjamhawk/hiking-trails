@@ -1,0 +1,61 @@
+<form (ngSubmit)="onSubmit(createForm)" #createForm="ngForm" appCheckCoordinates>
+  <h1>Create New Trail</h1>
+
+  <div>
+    <input name="name" #name="ngModel" id="name" [(ngModel)]="model.name" type="text" placeholder="Name" maxLength='20'
+      required />
+    <div [hidden]="name.valid || name.pristine">
+      <p>Name is required</p>
+    </div>
+  </div>
+
+  <div>
+    <textarea name="description" [(ngModel)]="model.description" #description="ngModel"
+      placeholder="Enter a description" maxLength="200" required></textarea>
+    <div [hidden]="description.valid || description.untouched">
+      <div *ngIf="description.errors?.required">
+        Description Is Required.
+      </div>
+    </div>
+  </div>
+  <div>
+    <input name="image" [(ngModel)]='model.image' type="text" placeholder="Enter URL to Cover Image" #image="ngModel"
+      required
+      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
+    <div [hidden]="image.valid || image.untouched">
+      <div *ngIf="image.errors?.required">
+        Image Url Is Required.
+      </div>
+      <div *ngIf="image.errors?.pattern">
+        Enter a Valid URL beginning with http or https
+      </div>
+    </div>
+  </div>
+  <div>
+    <input name="latitude" [(ngModel)]="model.latitude" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
+      placeholder="Latitude" min="-90" max="90" required #latitude="ngModel">
+    <input name="longitude" [(ngModel)]="model.longitude" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
+      placeholder="Longitude" min="-180" max="180" #longitude="ngModel" required>
+
+    <div [hidden]="latitude.untouched || longitude.untouched">
+      <div *ngIf="latitude.errors?.required">
+        Latitude Is Required.
+      </div>
+      <div *ngIf="longitude.errors?.required">
+        Longitude Is Required.
+      </div>
+      <div *ngIf="createForm.errors?.invalidCoordinates">
+        Latitude must be between -90 and 90.
+        Longitude must be between -180 and 180.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="model.image">
+    <img [src]="model.image" />
+  </div>
+  <div *ngIf="serverErr">
+    {{ serverErr }}
+  </div>
+
+  <button class="btn" type="submit" [disabled]="createForm.invalid">Submit</button>
+</form>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
-import { CampgroundsService } from 'src/app/services/campgrounds.service'
-import { Campground } from 'src/app/models/camground.model'
+// import { CampgroundsService } from 'src/app/services/trails.service'
+// import { Campground } from 'src/app/models/camground.model'
 import { Subscription } from 'rxjs'
 
 @Component({
@@ -9,19 +9,19 @@ import { Subscription } from 'rxjs'
   styleUrls: ['./campgrounds.component.scss']
 })
 export class CampgroundsComponent {
-  campgrounds: Campground[]
-  campgroundsSubscription: Subscription
+  // campgrounds: Campground[]
+  // campgroundsSubscription: Subscription
 
-  constructor (private campgroundsService: CampgroundsService) {}
+  // constructor (private campgroundsService: CampgroundsService) {}
 
-  ngOnInit () {
-    this.campgroundsSubscription = this.campgroundsService.getCampgrounds()
-      .subscribe(campgrounds => {
-        this.campgrounds = campgrounds
-      })
-  }
+  // ngOnInit () {
+  //   this.campgroundsSubscription = this.campgroundsService.getCampgrounds()
+  //     .subscribe(campgrounds => {
+  //       this.campgrounds = campgrounds
+  //     })
+  // }
 
-  ngOnDestroy () {
-    this.campgroundsSubscription.unsubscribe()
-  }
+  // ngOnDestroy () {
+  //   this.campgroundsSubscription.unsubscribe()
+  // }
 }
