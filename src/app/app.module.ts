@@ -5,24 +5,26 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { CampgroundsComponent } from './pages/campgrounds/campgrounds.component'
 import { HomeComponent } from './pages/home/home.component'
 import { NavbarComponent } from './components/navbar/navbar.component'
-import { CampgroundCardComponent } from './components/campground-card/campground-card.component';
-import { TrailsCreateComponent } from './pages/campgrounds/trails-create/trails-create.component'
+import { CampgroundCardComponent } from './components/campground-card/campground-card.component'
+import { TrailsCreateComponent } from './pages/trails/trails-create/trails-create.component'
 import { FormsModule } from '@angular/forms'
 import { AuthInterceptor } from './auth/auth-interceptor'
 import { checkCoordinatesValidatorDirective } from './utils/custom-validators/checkCoordinates'
+import { TrailsListComponent } from './pages/trails/trails-list/trails-list.component'
+import { TrailComponent } from './pages/trails/trail/trail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CampgroundsComponent,
     NavbarComponent,
     CampgroundCardComponent,
     TrailsCreateComponent,
-    checkCoordinatesValidatorDirective
+    TrailsListComponent,
+    checkCoordinatesValidatorDirective,
+    TrailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
-import { NgForm } from '@angular/forms';
-import { TrailsService } from 'src/app/services/trails.service';
+import { Component, OnInit } from '@angular/core'
+import { Subscription } from 'rxjs'
+import { NgForm } from '@angular/forms'
+import { TrailsService } from 'src/app/services/trails.service'
 
 @Component({
   selector: 'app-trails-create',

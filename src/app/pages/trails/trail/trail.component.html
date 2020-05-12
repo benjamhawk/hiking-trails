@@ -1,0 +1,11 @@
+<div *ngIf="trail">
+  <h1>{{ trail.name }}</h1>
+
+  <h5>Description</h5>
+  <p>{{ trail.description }}</p>
+
+  <h5>Location</h5>
+  <p>{{ trail.location }} </p>
+
+  <img [src]="trail.image" alt="trail.name"/>
+</div>

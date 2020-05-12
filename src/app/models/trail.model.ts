@@ -3,5 +3,6 @@ export interface Trail {
   description: string,
   image: string,
   location: number[]
-  date?: string
+  date?: string,
+  id?: string
 }

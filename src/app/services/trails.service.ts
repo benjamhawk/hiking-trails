@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject, Observable, Subject } from 'rxjs'
+import { Subject } from 'rxjs'
+import { map } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http'
 import { Trail } from '../models/trail.model'
 import { Router } from '@angular/router'
@@ -9,7 +10,8 @@ import { Router } from '@angular/router'
 })
 export class TrailsService {
   private serverError$ = new Subject<string>()
-
+  private trails: Trail[] = []
+  private trailsUpdated = new Subject<{ trails: Trail[]; trailCount: number }>()
   constructor (
     private http: HttpClient,
     private router: Router
@@ -23,12 +25,54 @@ export class TrailsService {
     this.http.post('http://localhost:5000/trails', { ...trail })
       .subscribe(
         data => {
-          this.router.navigate(['/campgrounds'])
+          this.router.navigate(['/trails'])
         },
         ({ error }) => {
           console.log('error', error)
           this.serverError$.next(error.message)
         }
       )
+  }
+
+  getTrails (postsPerPage: number, currentPage: number) {
+    const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`
+    this.http
+      .get<{ message: string; posts: any; maxPosts: number }>(
+        `http://localhost:5000/trails${queryParams}`
+      )
+      .pipe(
+        map(trailData => {
+          return {
+            trails: trailData.posts.map(trail => {
+              return {
+                name: trail.name,
+                description: trail.description,
+                image: trail.image,
+                location: trail.location,
+                date: trail.date,
+                id: trail._id
+              }
+            }),
+            maxPosts: trailData.maxPosts
+          }
+        })
+      )
+      .subscribe(transformedData => {
+        this.trails = transformedData.trails
+        this.trailsUpdated.next({
+          trails: [...this.trails],
+          trailCount: transformedData.maxPosts
+        })
+      })
+  }
+
+  getTrail (id: string) {
+    return this.http.get<Trail>(
+      `http://localhost:5000/trails/${id}`
+    )
+  }
+
+  getFetchedTrails () {
+    return this.trailsUpdated.asObservable()
   }
 }
