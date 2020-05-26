@@ -1,10 +1,9 @@
 <div class="page-container">
-  <div *ngFor="let trail of trails" class="card-container">
+  <div *ngFor="let trail of trails" class="card-container" [routerLink]="['/trails', trail.id]">
     <img [src]="trail.image" alt="{{ trail.title }}" />
     <div class='text-container'>
       <h1>{{ trail.name }}</h1>
       <p>{{ trail.description }}</p>
-      <button [routerLink]="['/trails', trail.id]">VIEW</button>
     </div>
   </div>
 </div>

@@ -34,6 +34,10 @@ export class TrailsService {
       )
   }
 
+  updateTrail (id: string, trail: Trail) {
+    return this.http.put(`http://localhost:5000/trails/${id}`, { ...trail })
+  }
+
   getTrails (postsPerPage: number, currentPage: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`
     this.http
@@ -74,5 +78,13 @@ export class TrailsService {
 
   getFetchedTrails () {
     return this.trailsUpdated.asObservable()
+  }
+
+  deleteTrail (id: string) {
+    return this.http.delete(`http://localhost:5000/trails/${id}`)
+      .subscribe(res => {
+        console.log(res)
+        this.router.navigate(['/trails'])
+      })
   }
 }
