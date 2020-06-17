@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { NgForm } from '@angular/forms'
 import { TrailsService } from 'src/app/services/trails.service'
+import { AuthService } from 'src/app/auth/auth.service'
 
 @Component({
   selector: 'app-trails-create',
@@ -12,16 +13,21 @@ export class TrailsCreateComponent implements OnInit {
   isLoading: boolean
   model = {}
   serverErr: string
+  userId: string
 
   serverErrSub: Subscription
+  userIdSub: Subscription
 
-  constructor (private trailsService: TrailsService) { }
+  constructor (private trailsService: TrailsService, private authService: AuthService) { }
 
   ngOnInit () {
     this.serverErrSub = this.trailsService.getErr()
       .subscribe(err => {
         this.serverErr = err
       })
+    
+    this.userIdSub = this.authService.getUserId()
+      .subscribe(id => this.userId = id)
   }
 
   onSubmit (form: NgForm) {
@@ -31,7 +37,8 @@ export class TrailsCreateComponent implements OnInit {
       name: form.value.name,
       description: form.value.description,
       image: form.value.image,
-      location: [form.value.latitude, form.value.longitude]
+      location: [form.value.latitude, form.value.longitude],
+      creator: this.userId
     })
   }
 

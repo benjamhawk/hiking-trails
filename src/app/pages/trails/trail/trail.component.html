@@ -9,8 +9,10 @@
 
   <img [src]="trail.image" alt="trail.name" />
 
-  <button (click)="onDelete()">Delete</button>
-  <button (click)="onEdit()">Edit</button>
+  <div *ngIf='trail.creator === userId'>
+    <button (click)="onDelete()">Delete</button>
+    <button (click)="onEdit()">Edit</button>
+  </div>
 </div>
 
 <div *ngIf="trail && isEditMode">
@@ -52,18 +54,18 @@
       <input name="longitude" [(ngModel)]="trail.location[1]" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
         placeholder="Longitude" min="-180" max="180" #longitude="ngModel" required>
 
-      <!-- <div [hidden]="latitude.untouched || longitude.untouched">
-        <div *ngIf="latitude.errors?.required">
+      <div [hidden]="latitude.untouched && longitude.untouched">
+        <div *ngIf="latitude?.errors?.required">
           Latitude Is Required.
         </div>
-        <div *ngIf="longitude.errors?.required">
+        <div *ngIf="longitude?.errors?.required">
           Longitude Is Required.
         </div>
-        <div *ngIf="createForm.errors?.invalidCoordinates">
+        <div *ngIf="editForm.errors?.invalidCoordinates">
           Latitude must be between -90 and 90.
           Longitude must be between -180 and 180.
         </div>
-      </div> -->
+      </div>
     </div>
     <div *ngIf="trail.image">
       <img [src]="trail.image" />

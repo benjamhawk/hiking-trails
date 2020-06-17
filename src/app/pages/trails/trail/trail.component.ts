@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { Subscription } from 'rxjs'
 import { Trail } from 'src/app/models/trail.model'
 import { NgForm } from '@angular/forms'
+import { AuthService } from 'src/app/auth/auth.service'
 
 @Component({
   selector: 'app-trail',
@@ -12,14 +13,17 @@ import { NgForm } from '@angular/forms'
 })
 export class TrailComponent implements OnInit {
   private routeSub: Subscription
+  private authSub: Subscription
   private trailId: string
-  private trail: Trail
+  private trail: any
   private isEditMode: boolean
+  private userId: string
 
   constructor (
     private trailsService: TrailsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit () {
@@ -31,9 +35,9 @@ export class TrailComponent implements OnInit {
           console.log(trail)
         })
     })
-  }
-  ngOnDestroy () {
-    this.routeSub.unsubscribe()
+
+    this.authSub = this.authService.getUserId()
+      .subscribe(id => this.userId = id)
   }
 
   onDelete () {
@@ -49,7 +53,8 @@ export class TrailComponent implements OnInit {
         name: form.value.name,
         description: form.value.description,
         image: form.value.image,
-        location: [form.value.latitude, form.value.longitude]
+        location: [form.value.latitude, form.value.longitude],
+        creator: this.trail.creator
       })
       .subscribe(
         data => {
@@ -65,4 +70,8 @@ export class TrailComponent implements OnInit {
     this.isEditMode = true
   }
 
+  ngOnDestroy () {
+    this.routeSub.unsubscribe()
+    this.authSub.unsubscribe()
+  }
 }

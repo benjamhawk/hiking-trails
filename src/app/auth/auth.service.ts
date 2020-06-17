@@ -12,7 +12,7 @@ export class AuthService {
   private isAuthenticated = false
   private token: string
   private tokenTimer: any
-  private userId: string
+  private userId$ = new BehaviorSubject<string>('')
   private userName$ = new BehaviorSubject<string>('')
   private authStatus$ = new Subject<boolean>()
   private loginError$ = new Subject<string>()
@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   getUserId () {
-    return this.userId
+    return this.userId$.asObservable()
   }
 
   getName () {
@@ -82,13 +82,13 @@ export class AuthService {
             this.setAuthTimer(expiresIn)
             this.isAuthenticated = true
             this.authStatus$.next(true)
-            this.userId = userId
+            this.userId$.next(userId)
             this.userName$.next(name)
             const now = new Date()
             const expirationDate = new Date(
               now.getTime() + expiresIn * 1000
             )
-            this.saveAuthData(token, expirationDate, this.userId, name)
+            this.saveAuthData(token, expirationDate, userId, name)
             this.router.navigate(['/'])
           }
         },
@@ -113,7 +113,7 @@ export class AuthService {
     if (expiresIn > 0) {
       this.token = authInfo.token
       this.isAuthenticated = true
-      this.userId = authInfo.userId
+      this.userId$.next(authInfo.userId)
       this.userName$.next(authInfo.name)
       this.setAuthTimer(expiresIn / 1000)
       this.authStatus$.next(true)
@@ -123,7 +123,7 @@ export class AuthService {
   logout () {
     this.token = null
     this.isAuthenticated = false
-    this.userId = null
+    this.userId$.next(null)
     this.userName$.next(null)
     this.authStatus$.next(false)
     clearTimeout(this.tokenTimer)
