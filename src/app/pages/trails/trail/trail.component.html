@@ -9,6 +9,8 @@
 
   <img [src]="trail.image" alt="trail.name" />
 
+  <app-trail-map [trail]='trail'></app-trail-map>
+
   <div *ngIf='trail.creator === userId'>
     <button (click)="onDelete()">Delete</button>
     <button (click)="onEdit()">Edit</button>
