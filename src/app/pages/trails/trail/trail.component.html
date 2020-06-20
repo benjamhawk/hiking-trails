@@ -30,7 +30,7 @@
     </div>
     <div>
       <textarea name="description" [(ngModel)]="trail.description" #description="ngModel"
-        placeholder="Enter a description" maxLength="200" required></textarea>
+        placeholder="Enter a description" maxLength="600" required></textarea>
       <div [hidden]="description.valid || description.untouched">
         <div *ngIf="description.errors?.required">
           Description Is Required.
