@@ -13,6 +13,7 @@ export class TrailsListComponent implements OnInit, OnDestroy {
   private currentPage = 1
   private totalTrails = 0
   private isLoading = false
+  private currentHoverTrail: Trail
   private trails: Trail[] = []
 
   private trailSub: Subscription
@@ -26,7 +27,15 @@ export class TrailsListComponent implements OnInit, OnDestroy {
         this.isLoading = false
         this.totalTrails = trailData.trailCount
         this.trails = trailData.trails
+        if (this.trails.length > 0) {
+          this.currentHoverTrail = this.trails[0]
+          console.log(this.currentHoverTrail)
+        }
       })
+  }
+
+  onHover (trail: Trail) {
+    this.currentHoverTrail = trail
   }
 
   ngOnDestroy () {
