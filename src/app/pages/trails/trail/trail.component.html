@@ -51,17 +51,17 @@
       </div>
     </div>
     <div>
-      <input name="latitude" [(ngModel)]="trail.location[0]" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
-        placeholder="Latitude" min="-90" max="90" required #latitude="ngModel">
-      <input name="longitude" [(ngModel)]="trail.location[1]" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
+      <input name="longitude" [(ngModel)]="trail.location[0]" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
         placeholder="Longitude" min="-180" max="180" #longitude="ngModel" required>
+      <input name="latitude" [(ngModel)]="trail.location[1]" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
+        placeholder="Latitude" min="-90" max="90" required #latitude="ngModel">
 
       <div [hidden]="latitude.untouched && longitude.untouched">
-        <div *ngIf="latitude?.errors?.required">
-          Latitude Is Required.
-        </div>
         <div *ngIf="longitude?.errors?.required">
           Longitude Is Required.
+        </div>
+        <div *ngIf="latitude?.errors?.required">
+          Latitude Is Required.
         </div>
         <div *ngIf="editForm.errors?.invalidCoordinates">
           Latitude must be between -90 and 90.

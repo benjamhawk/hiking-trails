@@ -37,7 +37,7 @@ export class TrailsCreateComponent implements OnInit {
       name: form.value.name,
       description: form.value.description,
       image: form.value.image,
-      location: [form.value.latitude, form.value.longitude],
+      location: [form.value.longitude, form.value.latitude],
       creator: this.userId
     })
   }
