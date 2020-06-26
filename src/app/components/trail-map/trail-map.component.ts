@@ -3,7 +3,7 @@ import 'ol'
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { Vector as VectorLayer } from 'ol/layer'
-import { Style, Circle, Fill, Stroke } from 'ol/style'
+import { Style, Circle, Fill, Stroke, Icon } from 'ol/style'
 import OSM from 'ol/source/OSM';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
@@ -52,12 +52,17 @@ export class TrailMapComponent implements OnInit {
       })
 
       var vectorSource = new VectorSource({
-          features: [marker]
-        });
+        features: [marker]
+      });
 
       var markerVectorLayer = new VectorLayer({
-          source: vectorSource,
-        });
+        source: vectorSource,
+        style: new Style({
+          image: new Icon({
+            src: '../../../assets/icon/hiker.svg'
+          })
+        })
+      })
 
       this.map.addLayer(markerVectorLayer)
     }
