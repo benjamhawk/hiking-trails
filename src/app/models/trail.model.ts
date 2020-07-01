@@ -1,5 +1,6 @@
 export interface Trail {
   name: string,
+  preview: string,
   description: string,
   image: string,
   location: number[],

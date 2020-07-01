@@ -10,6 +10,16 @@
   </div>
 
   <div>
+    <textarea name="preview" [(ngModel)]="model.preview" #preview="ngModel"
+      placeholder="Enter a short preview of the trail description" maxLength="100" required></textarea>
+    <div [hidden]="preview.valid || preview.untouched">
+      <div *ngIf="preview.errors?.required">
+        Preview Is Required.
+      </div>
+    </div>
+  </div>
+  
+  <div>
     <textarea name="description" [(ngModel)]="model.description" #description="ngModel"
       placeholder="Enter a description" maxLength="600" required></textarea>
     <div [hidden]="description.valid || description.untouched">

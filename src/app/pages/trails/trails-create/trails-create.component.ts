@@ -35,6 +35,7 @@ export class TrailsCreateComponent implements OnInit {
 
     this.trailsService.createTrail({
       name: form.value.name,
+      preview: form.value.preview,
       description: form.value.description,
       image: form.value.image,
       location: [form.value.longitude, form.value.latitude],
