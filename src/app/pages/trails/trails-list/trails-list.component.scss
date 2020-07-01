@@ -1,9 +1,8 @@
 .page-container {
   display: grid;
-  grid-template-columns: 2fr 1.2fr;
+  grid-template-columns: 1fr 600px;
   grid-template-rows: 1fr;
   height: 100%;
-  // justify-items: center;
 }
 
 .cards-container {
@@ -29,6 +28,7 @@ img {
   height: 75%;
   border-radius: 5px;
   border: 1px solid black;
+  object-fit: cover;
 }
 
 .text-container {
