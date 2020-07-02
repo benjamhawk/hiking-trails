@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { AuthService } from '../auth.service'
 import { NgForm } from '@angular/forms'
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading: boolean
   serverErr: string
   model = {}
+  private arrow = faArrowAltCircleRight
 
   private authStatusSub: Subscription
   private serverErrSub: Subscription

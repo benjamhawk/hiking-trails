@@ -1,11 +1,68 @@
+:host {
+  display: grid;
+  place-content: center;
+} 
+
 .ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+  border: 2px solid #42A948; /* green */
 }
 
 .ng-invalid:not(form) {
-  border-left: 5px solid #a94442; /* red */
+  border: 2px solid var(--warning); /* red */
 }
 
 #error {
-  border-left: 5px solid #a94442;
+  border: 2px solid var(--warning);
+}
+
+.form-container {
+  width: 500px;
+  height: 300px;
+  border: 2px solid #00000080;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.form {
+  width: 90%;
+}
+
+input {
+  height: 40px;
+  font-size: 1.2rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:enabled {
+  box-shadow: none;
+  background: var(--success-btn);
+  color: white;
+  border-style: none;
+  box-shadow: 2px 2px 3px #00000040;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.errors {
+  color: var(--warning);
+  div {
+    margin-top: 5px;
+  }
 }

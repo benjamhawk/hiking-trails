@@ -1,12 +1,18 @@
 :root {
-  /* Colors */
-  --background-default: #5F784A;
-  --background-nav: #FFF;
-  --background-container: #FFF;
-  --font-color: black;
-  --nav-logo: #816A53;
-  --link-active: #816A53;
-  --create-btn: #5F784A;
+  --green: #5F784A;
+  --red:  #a94442;
+  --white: #ffffff;
+  --brown: #816A53;
+  --black: #000000; 
+
+  --background-default: var(--green);
+  --background-nav: var(--white);
+  --background-container: var(--white);
+  --font-color: var(--black);
+  --nav-logo: var(--brown);
+  --link-active: var(--brown);
+  --success-btn: var(--green);
+  --warning: var(--red);
 }
 
 body {

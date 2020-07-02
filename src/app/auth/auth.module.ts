@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 import { LoginComponent } from './login/login.component'
 import { RegisterComponent } from './register/register.component'
@@ -16,7 +17,8 @@ import { PasswordsUnequalValidatorDirective } from '../utils/custom-validators/c
   imports: [
     CommonModule,
     FormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class AuthModule { }
