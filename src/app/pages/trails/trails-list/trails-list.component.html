@@ -6,8 +6,8 @@
       <div class='text-container'>
         <h1>{{ trail.name }}</h1>
         <p>{{ trail.preview }}</p>
-        <fa-icon class='view-btn' [icon]="viewMoreBtn"></fa-icon>
       </div>
+      <fa-icon class='view-btn' [icon]="viewMoreBtn"></fa-icon>
     </div>
   </div>
   <app-trail-map *ngIf='trails.length > 0' [trail]='currentHoverTrail'></app-trail-map>
