@@ -31,7 +31,7 @@
 
     <div>
       <textarea name="preview" [(ngModel)]="trail.preview" #preview="ngModel"
-        placeholder="Enter a short preview of the trail description" maxLength="100" required></textarea>
+        placeholder="Enter a short preview of the trail description" maxLength="200" required></textarea>
       <div [hidden]="preview.valid || preview.untouched">
         <div *ngIf="preview.errors?.required">
           Preview Is Required.

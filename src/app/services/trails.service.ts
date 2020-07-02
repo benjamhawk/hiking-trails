@@ -50,6 +50,7 @@ export class TrailsService {
             trails: trailData.posts.map(trail => {
               return {
                 name: trail.name,
+                preview: trail.preview,
                 description: trail.description,
                 image: trail.image,
                 location: trail.location,

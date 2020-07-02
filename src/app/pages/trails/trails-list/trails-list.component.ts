@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { TrailsService } from 'src/app/services/trails.service'
 import { Trail } from 'src/app/models/trail.model'
 import { Subscription } from 'rxjs'
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-trails-list',
@@ -16,6 +18,9 @@ export class TrailsListComponent implements OnInit, OnDestroy {
   private currentHoverTrail: Trail
   private trails: Trail[] = []
 
+  private viewMoreBtn = faAngleDoubleRight
+  private addBtn = faPlus
+
   private trailSub: Subscription
 
   constructor (private trailsService: TrailsService) { }
@@ -29,7 +34,6 @@ export class TrailsListComponent implements OnInit, OnDestroy {
         this.trails = trailData.trails
         if (this.trails.length > 0) {
           this.currentHoverTrail = this.trails[0]
-          console.log(this.currentHoverTrail)
         }
       })
   }

@@ -8,9 +8,10 @@
 .cards-container {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  display: grid;
+  grid-template: 300px / 1fr;
+  justify-items: center;
+  position: relative;
 }
 
 .card {
@@ -23,9 +24,19 @@
   align-self: center;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
+.card:active {
+  outline: none;
+}
+
 img {
-  width: 40%;
-  height: 75%;
+  --image-width: 300px;
+  --image-ratio: (4/3);
+  width: var(--image-width);
+  height: calc(var(--image-width) / var(--image-ratio));
   border-radius: 5px;
   border: 1px solid black;
   object-fit: cover;
@@ -37,6 +48,7 @@ img {
   margin: 0 30px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 h1 {
@@ -46,4 +58,42 @@ h1 {
 p {
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.view-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 25px;
+  opacity: 50%;
+}
+
+.view-btn:hover {
+  opacity: 100%;
+}
+
+.add-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  background-color: var(--create-btn);
+  color: var(--background-container);
+  box-shadow: 2px 2px 2px #00000030;
+  border-radius: 50%;
+  justify-content: center;
+  align-content: center;
+  display: grid;
+}
+
+.add-btn:hover {
+  cursor: pointer;
+}
+
+.add-btn:active {
+  box-shadow: none;
+  transform: translate(1px, 1px);
+  outline: none;
 }

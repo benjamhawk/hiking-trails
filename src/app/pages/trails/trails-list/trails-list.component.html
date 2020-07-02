@@ -1,10 +1,12 @@
 <div class="page-container">
   <div class='cards-container'>
+    <fa-icon class='add-btn' [icon]='addBtn' routerLink='/trails/create'></fa-icon>
     <div *ngFor="let trail of trails" class="card" [routerLink]="['/trails', trail.id]" (mouseenter)="onHover(trail)">
       <img [src]="trail.image" alt="{{ trail.title }}" />
       <div class='text-container'>
         <h1>{{ trail.name }}</h1>
-        <p>{{ trail.description }}</p>
+        <p>{{ trail.preview }}</p>
+        <fa-icon class='view-btn' [icon]="viewMoreBtn"></fa-icon>
       </div>
     </div>
   </div>
