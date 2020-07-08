@@ -7,17 +7,11 @@
   border: 2px solid #42A948; /* green */
 }
 
-.ng-invalid:not(form) {
+.ng-invalid:not(form), #error {
   border: 2px solid var(--warning); /* red */
 }
 
-#error {
-  border: 2px solid var(--warning);
-}
-
 .form-container {
-  width: 500px;
-  height: 300px;
   border: 2px solid #00000080;
   display: grid;
   grid-template-columns: 100%;
@@ -27,14 +21,34 @@
   border-radius: 3px;
 }
 
-.form {
-  width: 90%;
+.login-form {
+  width: 500px;
+  height: 300px;
+}
+
+.register-form {
+  width: 500px;
+  height: 500px;
+}
+
+form {
+  height: 100%;
+  width: 100%;
+}
+
+.input-fields {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 input {
+  justify-self: center;
   height: 40px;
   font-size: 1.2rem;
-  width: 100%;
+  width: 80%;
   border-radius: 5px;
 }
 

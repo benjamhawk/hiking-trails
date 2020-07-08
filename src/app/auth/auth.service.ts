@@ -15,8 +15,7 @@ export class AuthService {
   private userId$ = new BehaviorSubject<string>('')
   private userName$ = new BehaviorSubject<string>('')
   private authStatus$ = new Subject<boolean>()
-  private loginError$ = new Subject<string>()
-  private signUpError$ = new Subject<string>()
+  private authErr$ = new Subject<string>()
 
   constructor (
     private http: HttpClient,
@@ -43,12 +42,8 @@ export class AuthService {
     return this.authStatus$.asObservable()
   }
 
-  getLoginErr$ () {
-    return this.loginError$.asObservable()
-  }
-
-  getSignupErr$ () {
-    return this.signUpError$.asObservable()
+  getAuthErr$ () {
+    return this.authErr$.asObservable()
   }
 
   createUser (newUser: User) {
@@ -60,8 +55,8 @@ export class AuthService {
         },
         ({ error }) => {
           console.log(error)
-          if (error.message.errors.email) {
-            this.signUpError$.next('Email Already In Use.')
+          if (error.message) {
+            this.authErr$.next(error.message)
           }
           this.authStatus$.next(false)
         }
@@ -94,7 +89,7 @@ export class AuthService {
         },
         ({ error }) => {
           console.log(error.message)
-          this.loginError$.next(error.message)
+          this.authErr$.next(error.message)
           this.authStatus$.next(false)
         }
       )
