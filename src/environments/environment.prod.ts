@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'http://happypath-env.eba-jgedpwhn.us-east-2.elasticbeanstalk.com/'
 }

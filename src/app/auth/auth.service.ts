@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 
 import { User } from '../models/user.model'
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,7 @@ export class AuthService {
   }
 
   createUser (newUser: User) {
-    this.http.post('http://localhost:5000/auth/register', { ...newUser })
+    this.http.post(`${environment.apiUrl}/auth/register`, { ...newUser })
       .subscribe(
         (data) => {
           this.login(newUser.email, newUser.password)
@@ -66,7 +67,7 @@ export class AuthService {
   login (email: string, password: string) {
     this.http
       .post<{ token: string; expiresIn: number; userId: string, name: string }>(
-        'http://localhost:5000/auth/login',
+        `${environment.apiUrl}/auth/login`,
         { email, password }
       )
       .subscribe(

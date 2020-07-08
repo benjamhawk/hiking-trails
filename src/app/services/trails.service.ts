@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http'
 import { Trail } from '../models/trail.model'
 import { Router } from '@angular/router'
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -22,18 +23,18 @@ export class TrailsService {
   }
 
   createTrail (trail: Trail) {
-    return this.http.post('http://localhost:5000/trails', { ...trail })
+    return this.http.post(`${environment.apiUrl}/trails`, { ...trail })
   }
 
   updateTrail (id: string, trail: Trail) {
-    return this.http.put(`http://localhost:5000/trails/${id}`, { ...trail })
+    return this.http.put(`${environment.apiUrl}/trails/${id}`, { ...trail })
   }
 
   getTrails (postsPerPage: number, currentPage: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`
     this.http
       .get<{ message: string; posts: any; maxPosts: number }>(
-        `http://localhost:5000/trails${queryParams}`
+        `${environment.apiUrl}/trails${queryParams}`
       )
       .pipe(
         map(trailData => {
@@ -64,7 +65,7 @@ export class TrailsService {
 
   getTrail (id: string) {
     return this.http.get<Trail>(
-      `http://localhost:5000/trails/${id}`
+      `${environment.apiUrl}/trails/${id}`
     )
   }
 
@@ -73,7 +74,7 @@ export class TrailsService {
   }
 
   deleteTrail (id: string) {
-    return this.http.delete(`http://localhost:5000/trails/${id}`)
+    return this.http.delete(`${environment.apiUrl}/trails/${id}`)
       .subscribe(res => {
         console.log(res)
         this.router.navigate(['/trails'])
