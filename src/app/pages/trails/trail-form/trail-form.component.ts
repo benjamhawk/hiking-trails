@@ -14,11 +14,10 @@ import { defaultTrail } from 'src/assets/defaultData/defaultTrail'
 })
 export class TrailFormComponent implements OnInit {
   private isLoading: boolean
-  private serverErr: string
   private userId: string
   private isEditMode: boolean
   private trailId: string
-  private trail: Trail = defaultTrail
+  private trail = defaultTrail
 
   private serverErrSub: Subscription
   private userIdSub: Subscription
@@ -27,20 +26,17 @@ export class TrailFormComponent implements OnInit {
   constructor (
     private trailsService: TrailsService,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit () {
-    this.serverErrSub = this.trailsService.getErr()
-      .subscribe(err => {
-        this.serverErr = err
-      })
-
     this.userIdSub = this.authService.getUserId()
       .subscribe(id => this.userId = id)
 
     this.routeSub = this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.trailId = paramMap.get('id')
+
       if (this.trailId) {
         this.isEditMode = true
         this.trailsService.getTrail(this.trailId)
@@ -67,7 +63,8 @@ export class TrailFormComponent implements OnInit {
         })
         .subscribe(
           data => {
-            console.log(data)
+            this.router.navigate(['/trails'])
+            form.resetForm()
           },
           error => {
             console.log(error)
@@ -82,11 +79,19 @@ export class TrailFormComponent implements OnInit {
         location: [form.value.longitude, form.value.latitude],
         creator: this.userId
       })
+        .subscribe(
+          success => {
+            this.router.navigate(['/trails'])
+            form.resetForm()
+          },
+          error => {
+            console.log(error)
+          }
+        )
     }
   }
 
   ngOnDestroy () {
-    this.serverErrSub.unsubscribe()
     this.routeSub.unsubscribe()
     this.userIdSub.unsubscribe()
   }

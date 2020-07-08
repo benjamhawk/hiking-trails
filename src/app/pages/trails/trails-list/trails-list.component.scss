@@ -86,6 +86,7 @@ p {
   justify-content: center;
   align-content: center;
   display: grid;
+  z-index: 10;
 }
 
 .add-btn:hover {

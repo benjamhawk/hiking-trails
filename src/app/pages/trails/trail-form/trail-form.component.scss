@@ -1,0 +1,123 @@
+:host {
+  display: grid;
+  place-content: center;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border: 2px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form), #error {
+  border: 2px solid var(--warning); /* red */
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  align-self: center;
+}
+
+form {
+  height: auto;
+  width: 500px;
+  display: grid;
+  border: 2px solid #00000080;
+  border-radius: 3px;
+  padding: 0px 20px;
+  margin: 20px 0;
+}
+
+input {
+  justify-self: center;
+  height: 20px;
+  font-size: 0.8rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+textarea {
+  border-radius: 5px;
+  resize: none;
+}
+
+.preview {
+  height: 60px;
+  width: 100%;
+}
+
+.description {
+  height: 120px;
+  width: 100%;
+}
+
+p {
+  margin: 5px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  color: var(--warning);
+  align-self: center;
+}
+
+.input-container {
+  height: 100%;
+}
+
+.location-container {
+  display: flex;
+}
+
+.image-preview {
+  border: 1px solid #00000080;
+  border-radius: 3px;
+  --image-width: 200px;
+  --image-ratio: (4/3);
+  width: var(--image-width);
+  height: calc(var(--image-width) / var(--image-ratio));
+  margin-bottom: 20px;
+  
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+
+  p {
+    color: black;
+  }
+}
+
+.location-input {
+  width: 20%;
+  margin-right: 10px;
+}
+
+.error-container {
+  height: 20px;
+}
+
+.location-error-container {
+  height: 40px;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 3px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.btn:enabled {
+  cursor: pointer;
+  box-shadow: none;
+  background: var(--success-btn);
+  color: white;
+  border-style: none;
+  box-shadow: 2px 2px 3px #00000040;
+}

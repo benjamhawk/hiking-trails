@@ -22,16 +22,7 @@ export class TrailsService {
   }
 
   createTrail (trail: Trail) {
-    this.http.post('http://localhost:5000/trails', { ...trail })
-      .subscribe(
-        data => {
-          this.router.navigate(['/trails'])
-        },
-        ({ error }) => {
-          console.log('error', error)
-          this.serverError$.next(error.message)
-        }
-      )
+    return this.http.post('http://localhost:5000/trails', { ...trail })
   }
 
   updateTrail (id: string, trail: Trail) {

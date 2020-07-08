@@ -8,5 +8,5 @@ export const defaultTrail: Trail = {
   location: [],
   creator: '',
   date: '',
-  id: ''
+  _id: ''
 }

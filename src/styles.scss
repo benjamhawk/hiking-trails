@@ -19,5 +19,8 @@ body {
   background: var(--background-default);
   margin: 0;
   padding: 0;
+}
+
+body, textarea {
   font-family: 'Raleway', sans-serif;
 }
