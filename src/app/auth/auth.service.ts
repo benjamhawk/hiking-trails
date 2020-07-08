@@ -95,7 +95,6 @@ export class AuthService {
         }
       )
   }
-
   // When the app loads, this will automatically login the user
   // if the token has yet to expire
   autoAuthUser () {
