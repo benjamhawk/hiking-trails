@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
 import { NavbarComponent } from './components/navbar/navbar.component'
-import { TrailsCreateComponent } from './pages/trails/trails-create/trails-create.component'
+import { TrailFormComponent } from './pages/trails/trail-form/trail-form.component'
 import { FormsModule } from '@angular/forms'
 import { AuthInterceptor } from './auth/auth-interceptor'
 import { checkCoordinatesValidatorDirective } from './utils/custom-validators/checkCoordinates'
@@ -20,7 +20,7 @@ import { TrailMapComponent } from './components/trail-map/trail-map.component'
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    TrailsCreateComponent,
+    TrailFormComponent,
     TrailsListComponent,
     checkCoordinatesValidatorDirective,
     TrailComponent,

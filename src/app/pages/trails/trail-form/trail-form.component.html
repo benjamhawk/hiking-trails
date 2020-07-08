@@ -1,8 +1,8 @@
-<form (ngSubmit)="onSubmit(createForm)" #createForm="ngForm" appCheckCoordinates>
-  <h1>Create New Trail</h1>
+<form (ngSubmit)="onSubmit(trailForm)" #trailForm="ngForm" appCheckCoordinates>
+  <h1>{{ isEditMode ? 'Edit Trail' : 'Create New Trail' }}</h1>
 
   <div>
-    <input name="name" #name="ngModel" id="name" [(ngModel)]="model.name" type="text" placeholder="Name" maxLength='20'
+    <input name="name" #name="ngModel" id="name" [(ngModel)]="trail.name" type="text" placeholder="Name" maxLength='20'
       required />
     <div [hidden]="name.valid || name.pristine">
       <p>Name is required</p>
@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <textarea name="preview" [(ngModel)]="model.preview" #preview="ngModel"
+    <textarea name="preview" [(ngModel)]="trail.preview" #preview="ngModel"
       placeholder="Enter a short preview of the trail description" maxLength="200" required></textarea>
     <div [hidden]="preview.valid || preview.untouched">
       <div *ngIf="preview.errors?.required">
@@ -20,7 +20,7 @@
   </div>
   
   <div>
-    <textarea name="description" [(ngModel)]="model.description" #description="ngModel"
+    <textarea name="description" [(ngModel)]="trail.description" #description="ngModel"
       placeholder="Enter a description" maxLength="600" required></textarea>
     <div [hidden]="description.valid || description.untouched">
       <div *ngIf="description.errors?.required">
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div>
-    <input name="image" [(ngModel)]='model.image' type="text" placeholder="Enter URL to Cover Image" #image="ngModel"
+    <input name="image" [(ngModel)]='trail.image' type="text" placeholder="Enter URL to Cover Image" #image="ngModel"
       required
       pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
     <div [hidden]="image.valid || image.untouched">
@@ -42,9 +42,9 @@
     </div>
   </div>
   <div>
-    <input name="longitude" [(ngModel)]="model.longitude" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
+    <input name="longitude" [(ngModel)]="trail.location[0]" type="number"
       placeholder="Longitude" min="-180" max="180" #longitude="ngModel" required>
-    <input name="latitude" [(ngModel)]="model.latitude" [ngModelOptions]="{ updateOn: 'blur' }" type="number"
+    <input name="latitude" [(ngModel)]="trail.location[1]" type="number"
       placeholder="Latitude" min="-90" max="90" required #latitude="ngModel">
 
     <div [hidden]="latitude.untouched || longitude.untouched">
@@ -54,18 +54,18 @@
       <div *ngIf="latitude.errors?.required">
         Latitude Is Required.
       </div>
-      <div *ngIf="createForm.errors?.invalidCoordinates">
+      <div *ngIf="trailForm.errors?.invalidCoordinates">
         Longitude must be between -180 and 180.
         Latitude must be between -90 and 90.
       </div>
     </div>
   </div>
-  <div *ngIf="model.image">
-    <img [src]="model.image" />
+  <div *ngIf="trail.image">
+    <img [src]="trail.image" />
   </div>
   <div *ngIf="serverErr">
     {{ serverErr }}
   </div>
 
-  <button class="btn" type="submit" [disabled]="createForm.invalid">Submit</button>
+  <button class="btn" type="submit" [disabled]="trailForm.invalid">{{ isEditMode ? 'Save' : 'Create' }}</button>
 </form>

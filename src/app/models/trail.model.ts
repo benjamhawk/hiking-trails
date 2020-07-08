@@ -6,5 +6,5 @@ export interface Trail {
   location: number[],
   creator: string,
   date?: string,
-  id?: string
+  _id?: string
 }
