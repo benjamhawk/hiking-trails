@@ -11,13 +11,18 @@ import { Router, ParamMap, ActivatedRoute, UrlSegment } from '@angular/router'
   styleUrls: ['./auth-form.component.scss']
 })
 export class AuthFormComponent implements OnInit, OnDestroy {
-  private routeSub: Subscription
-  private isLoading: boolean
-  private serverErr: string
-  private model = {}
-  private arrow = faArrowAltCircleRight
-  private isLoginScreen: boolean
-  private isFormReady = false
+  routeSub: Subscription
+  isLoading: boolean
+  serverErr: string
+  model = {
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirmation: ''
+  }
+  arrow = faArrowAltCircleRight
+  isLoginScreen: boolean
+  isFormReady = false
 
   private authStatusSub: Subscription
   private serverErrSub: Subscription

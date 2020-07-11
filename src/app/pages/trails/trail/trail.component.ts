@@ -11,11 +11,11 @@ import { AuthService } from 'src/app/auth/auth.service'
   styleUrls: ['./trail.component.scss']
 })
 export class TrailComponent implements OnInit {
-  private routeSub: Subscription
-  private authSub: Subscription
-  private trailId: string
-  private trail: Trail
-  private userId: string
+  routeSub: Subscription
+  authSub: Subscription
+  trailId: string
+  trail: Trail
+  userId: string
 
   constructor (
     private trailsService: TrailsService,

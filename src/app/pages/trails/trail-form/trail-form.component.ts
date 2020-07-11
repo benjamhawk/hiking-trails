@@ -13,11 +13,11 @@ import { defaultTrail } from 'src/assets/defaultData/defaultTrail'
   styleUrls: ['./trail-form.component.scss']
 })
 export class TrailFormComponent implements OnInit {
-  private isLoading: boolean
-  private userId: string
-  private isEditMode: boolean
-  private trailId: string
-  private trail = defaultTrail
+  isLoading: boolean
+  userId: string
+  isEditMode: boolean
+  trailId: string
+  trail = defaultTrail
 
   private serverErrSub: Subscription
   private userIdSub: Subscription

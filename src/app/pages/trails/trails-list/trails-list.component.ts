@@ -11,15 +11,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
   styleUrls: ['./trails-list.component.scss']
 })
 export class TrailsListComponent implements OnInit, OnDestroy {
-  private postsPerPage = 4
-  private currentPage = 1
-  private totalTrails = 0
-  private isLoading = false
-  private currentHoverTrail: Trail
-  private trails: Trail[] = []
+  postsPerPage = 4
+  currentPage = 1
+  totalTrails = 0
+  isLoading = false
+  currentHoverTrail: Trail
+  trails: Trail[] = []
 
-  private viewMoreBtn = faAngleDoubleRight
-  private addBtn = faPlus
+  viewMoreBtn = faAngleDoubleRight
+  addBtn = faPlus
 
   private trailSub: Subscription
 
