@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://happypath-env.eba-jgedpwhn.us-east-2.elasticbeanstalk.com'
+  apiUrl: 'http://localhost:5000'
 }
 
 /*
