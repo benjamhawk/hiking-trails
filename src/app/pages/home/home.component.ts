@@ -1,5 +1,4 @@
 import { Component } from '@angular/core'
-import { ThemeService } from 'src/app/theme/theme.service'
 import { Subscription } from 'rxjs'
 import { AuthService } from 'src/app/auth/auth.service'
 
@@ -13,19 +12,13 @@ export class HomeComponent {
 
   private nameSub: Subscription
 
-  constructor (private themeService: ThemeService, private authService: AuthService) { }
+  constructor (private authService: AuthService) { }
 
   ngOnInit () {
     this.nameSub = this.authService.getName()
       .subscribe(name => {
         this.userName = name
       })
-  }
-
-  toggleTheme () {
-    this.themeService.getActiveTheme().name === 'dark'
-      ? this.themeService.setLightTheme()
-      : this.themeService.setDarkTheme()
   }
 
   ngOnDestory () {

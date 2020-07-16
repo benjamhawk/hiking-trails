@@ -13,7 +13,8 @@ import { AuthInterceptor } from './auth/auth-interceptor'
 import { checkCoordinatesValidatorDirective } from './utils/custom-validators/checkCoordinates'
 import { TrailsListComponent } from './pages/trails/trails-list/trails-list.component'
 import { TrailComponent } from './pages/trails/trail/trail.component';
-import { TrailMapComponent } from './components/trail-map/trail-map.component'
+import { TrailMapComponent } from './components/trail-map/trail-map.component';
+import { TreesComponent } from './components/svgs/trees/trees.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TrailMapComponent } from './components/trail-map/trail-map.component'
     TrailsListComponent,
     checkCoordinatesValidatorDirective,
     TrailComponent,
-    TrailMapComponent
+    TrailMapComponent,
+    TreesComponent
   ],
   imports: [
     BrowserModule,

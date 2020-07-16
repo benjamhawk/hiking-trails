@@ -1,1 +1,42 @@
+:host {
+  display: grid;
+}
+
+.page-container {
+  height: 40%;
+  width: 450px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: end;
+  justify-items: center;
+  align-self: center;
+  justify-self: center;
+}
+
+h3 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+app-trees {
+  justify-self: end;
+  align-self: center;
+  grid-row: span 2;
+}
+
+p {
+  align-self: start;
+}
+
+button {
+  grid-column: span 2;
+  width: 150px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  outline: black 1px;
+  cursor: pointer;
+  background-color: var(--success-btn);
+  color: white;
+}
 
