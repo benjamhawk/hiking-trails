@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "happy-paths": {
+    "take-a-hike": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/happy-paths",
+            "outputPath": "dist/take-a-hike",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "happy-paths:build"
+            "browserTarget": "take-a-hike:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "happy-paths:build:production"
+              "browserTarget": "take-a-hike:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "happy-paths:build"
+            "browserTarget": "take-a-hike:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "happy-paths:serve"
+            "devServerTarget": "take-a-hike:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "happy-paths:serve:production"
+              "devServerTarget": "take-a-hike:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "happy-paths"
+  "defaultProject": "take-a-hike"
 }
