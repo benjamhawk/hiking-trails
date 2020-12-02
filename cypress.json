@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:4200",
+  "env": {
+    "backendUrl": "http://localhost:5000",
+    "userLogin": {
+      "email": "testlogin@email.com",
+      "password": "test123"
+    }
+  }
+}

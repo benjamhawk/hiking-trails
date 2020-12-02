@@ -13,9 +13,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   userIsAuthenticated: boolean
   private authListenerSub: Subscription
 
-  constructor (private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
-  ngOnInit () {
+  ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth()
     this.authListenerSub = this.authService
       .getAuthStatus$()
@@ -24,12 +24,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
       })
   }
 
-  onLogout () {
+  onLogout() {
     this.authService.logout()
   }
 
-  ngOnDestroy () {
-    this.authListenerSub.unsubscribe()
+  deleteUser() {
+    this.authService.deleteUser()
   }
 
+  ngOnDestroy() {
+    this.authListenerSub.unsubscribe()
+  }
 }

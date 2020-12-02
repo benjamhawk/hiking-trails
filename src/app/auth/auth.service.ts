@@ -18,41 +18,40 @@ export class AuthService {
   private authStatus$ = new Subject<boolean>()
   private authErr$ = new Subject<string>()
 
-  constructor (
-    private http: HttpClient,
-    private router: Router
-  ) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  getToken () {
+  getToken() {
+    console.log(window.localStorage.getItem('name'))
     return this.token
   }
 
-  getIsAuth () {
+  getIsAuth() {
     return this.isAuthenticated
   }
 
-  getUserId () {
+  getUserId() {
     return this.userId$.asObservable()
   }
 
-  getName () {
+  getName() {
     return this.userName$.asObservable()
   }
 
-  getAuthStatus$ () {
+  getAuthStatus$() {
     return this.authStatus$.asObservable()
   }
 
-  getAuthErr$ () {
+  getAuthErr$() {
     return this.authErr$.asObservable()
   }
 
-  createUser (newUser: User) {
-    this.http.post(`${environment.apiUrl}/auth/register`, { ...newUser })
+  createUser(newUser: User) {
+    this.http
+      .post(`${environment.apiUrl}/auth/register`, { ...newUser })
       .subscribe(
-        (data) => {
+        data => {
           this.login(newUser.email, newUser.password)
-          this.router.navigate(['/'])
+          this.router.navigate(['/trails'])
         },
         ({ error }) => {
           console.log(error)
@@ -64,9 +63,9 @@ export class AuthService {
       )
   }
 
-  login (email: string, password: string) {
+  login(email: string, password: string) {
     this.http
-      .post<{ token: string; expiresIn: number; userId: string, name: string }>(
+      .post<{ token: string; expiresIn: number; userId: string; name: string }>(
         `${environment.apiUrl}/auth/login`,
         { email, password }
       )
@@ -80,10 +79,9 @@ export class AuthService {
             this.authStatus$.next(true)
             this.userId$.next(userId)
             this.userName$.next(name)
+            this.token = token
             const now = new Date()
-            const expirationDate = new Date(
-              now.getTime() + expiresIn * 1000
-            )
+            const expirationDate = new Date(now.getTime() + expiresIn * 1000)
             this.saveAuthData(token, expirationDate, userId, name)
             this.router.navigate(['/'])
           }
@@ -95,9 +93,16 @@ export class AuthService {
         }
       )
   }
+
+  deleteUser() {
+    this.http.delete(`${environment.apiUrl}/auth/user`).subscribe(response => {
+      console.log(response)
+      this.logout()
+    })
+  }
   // When the app loads, this will automatically login the user
   // if the token has yet to expire
-  autoAuthUser () {
+  autoAuthUser() {
     const authInfo = this.getAuthData()
 
     if (!authInfo) return
@@ -115,7 +120,7 @@ export class AuthService {
     }
   }
 
-  logout () {
+  logout() {
     this.token = null
     this.isAuthenticated = false
     this.userId$.next(null)
@@ -127,25 +132,30 @@ export class AuthService {
   }
 
   // Will auto logout when timer expires
-  private setAuthTimer (duration: number) {
+  private setAuthTimer(duration: number) {
     this.tokenTimer = setTimeout(() => this.logout(), duration * 1000)
   }
 
-  private saveAuthData (token: string, expirateDate: Date, userId: string, name: string) {
+  private saveAuthData(
+    token: string,
+    expirateDate: Date,
+    userId: string,
+    name: string
+  ) {
     localStorage.setItem('token', token)
     localStorage.setItem('expiration', expirateDate.toISOString())
     localStorage.setItem('userId', userId)
     localStorage.setItem('name', name)
   }
 
-  private clearAuthData () {
+  private clearAuthData() {
     localStorage.removeItem('token')
     localStorage.removeItem('expiration')
     localStorage.removeItem('userId')
     localStorage.removeItem('name')
   }
 
-  private getAuthData () {
+  private getAuthData() {
     const token = localStorage.getItem('token')
     const expirationDate = localStorage.getItem('expiration')
     const userId = localStorage.getItem('userId')

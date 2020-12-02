@@ -8,15 +8,7 @@ import { PasswordsUnequalValidatorDirective } from '../utils/custom-validators/c
 import { AuthFormComponent } from './auth-form/auth-form.component'
 
 @NgModule({
-  declarations: [
-    AuthFormComponent,
-    PasswordsUnequalValidatorDirective
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    AuthRoutingModule,
-    FontAwesomeModule
-  ]
+  declarations: [AuthFormComponent, PasswordsUnequalValidatorDirective],
+  imports: [CommonModule, FormsModule, AuthRoutingModule, FontAwesomeModule]
 })
-export class AuthModule { }
+export class AuthModule {}

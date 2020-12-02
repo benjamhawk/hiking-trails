@@ -1,17 +1,17 @@
-<div *ngIf="trail">
+<div *ngIf="trail" class="container">
   <h1>{{ trail.name }}</h1>
 
   <h5>Description</h5>
   <p>{{ trail.description }}</p>
 
   <h5>Location</h5>
-  <p>{{ trail.location }} </p>
+  <p>{{ trail.location }}</p>
 
   <img [src]="trail.image" alt="trail.name" />
 
-  <app-trail-map [trail]='trail'></app-trail-map>
+  <!-- <app-trail-map [trail]="trail"></app-trail-map> -->
 
-  <div *ngIf='trail.creator === userId'>
+  <div *ngIf="trail.creator === userId">
     <button (click)="onDelete()">Delete</button>
     <button [routerLink]="['/trails/edit', trail._id]">Edit</button>
   </div>

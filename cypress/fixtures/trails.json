@@ -1,0 +1,50 @@
+{
+  "message": "Trails fetched Successfully!",
+  "posts": [
+    {
+      "location": [1, -1],
+      "_id": "5f061fbe60f8a1be57029683",
+      "name": "test1",
+      "preview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor dolor vitae diam tincidunt, non dapibus felis aliquet. Aliquam suscipit ipsum malesuada urna ornare, vitae mattis nunc ultrices. Vestibulum eget viverra ipsum. Cras vel molestie quam. Nam vel risus sit amet mauris cursus elementum. Sed vitae nulla sapien. Pellentesque vitae nisi mauris.",
+      "description": "Duis vestibulum massa orci. Morbi sit amet posuere ligula, id fringilla sem. Integer sed enim nulla. Pellentesque nisl tellus, pulvinar in arcu vel, efficitur tristique quam. Integer eget consectetur mauris, ornare tempus ipsum. Morbi faucibus tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ac felis sed mauris condimentum maximus. Suspendisse vitae dui malesuada, dictum tellus nec, mattis erat. Proin neque nisi, dapibus eget ornare sit amet, efficitur ut ante. Phasellus varius neque vestibulum, bibendum metus quis, venenatis erat. Etiam vitae turpis egestas, cursus magna ut, commodo ligula. In sit amet purus et nisi facilisis dignissim. Pellentesque orci turpis, gravida dignissim fringilla id, convallis id nulla.",
+      "image": "https://images.unsplash.com/photo-1539712258047-fd138a7e6737?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "creator": "5eac72c2d25e9b4529ac09a9",
+      "date": "2020-07-08T19:34:22.080Z",
+      "__v": 0
+    },
+    {
+      "location": [5, 10],
+      "_id": "5f06217a60f8a1be57029685",
+      "name": "test2",
+      "preview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor dolor vitae diam tincidunt, non dapibus felis aliquet. Aliquam suscipit ipsum malesuada urna ornare, vitae mattis nunc ultrices. Vestibulum eget viverra ipsum. Cras vel molestie quam. Nam vel risus sit amet mauris cursus elementum. Sed vitae nulla sapien. Pellentesque vitae nisi mauris.",
+      "description": "Duis vestibulum massa orci. Morbi sit amet posuere ligula, id fringilla sem. Integer sed enim nulla. Pellentesque nisl tellus, pulvinar in arcu vel, efficitur tristique quam. Integer eget consectetur mauris, ornare tempus ipsum. Morbi faucibus tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ac felis sed mauris condimentum maximus. Suspendisse vitae dui malesuada, dictum tellus nec, mattis erat. Proin neque nisi, dapibus eget ornare sit amet, efficitur ut ante. Phasellus varius neque vestibulum, bibendum metus quis, venenatis erat. Etiam vitae turpis egestas, cursus magna ut, commodo ligula. In sit amet purus et nisi facilisis dignissim. Pellentesque orci turpis, gravida dignissim fringilla id, convallis id nulla.",
+      "image": "https://images.unsplash.com/photo-1539712258047-fd138a7e6737?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "creator": "5eac72c2d25e9b4529ac09a9",
+      "date": "2020-07-08T19:41:46.585Z",
+      "__v": 0
+    },
+    {
+      "location": [1, 1],
+      "_id": "5f06222a60f8a1be57029687",
+      "name": "test3",
+      "preview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor dolor vitae diam tincidunt, non dapibus felis aliquet. Aliquam suscipit ipsum malesuada urna ornare, vitae mattis nunc ultrices. Vestibulum eget viverra ipsum. Cras vel molestie quam. Nam vel risus sit amet mauris cursus elementum. Sed vitae nulla sapien. Pellentesque vitae nisi mauris.",
+      "description": "Duis vestibulum massa orci. Morbi sit amet posuere ligula, id fringilla sem. Integer sed enim nulla. Pellentesque nisl tellus, pulvinar in arcu vel, efficitur tristique quam. Integer eget consectetur mauris, ornare tempus ipsum. Morbi faucibus tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ac felis sed mauris condimentum maximus. Suspendisse vitae dui malesuada, dictum tellus nec, mattis erat. Proin neque nisi, dapibus eget ornare sit amet, efficitur ut ante. Phasellus varius neque vestibulum, bibendum metus quis, venenatis erat. Etiam vitae turpis egestas, cursus magna ut, commodo ligula. In sit amet purus et nisi facilisis dignissim. Pellentesque orci turpis, gravida dignissim fringilla id, convallis id nulla.",
+      "image": "https://images.unsplash.com/photo-1455763916899-e8b50eca9967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "creator": "5eac72c2d25e9b4529ac09a9",
+      "date": "2020-07-08T19:44:42.902Z",
+      "__v": 0
+    },
+    {
+      "location": [2, 8],
+      "_id": "5f9860de6295da40507b425f",
+      "name": "test4",
+      "preview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor dolor vitae diam tincidunt, non dapibus felis aliquet. Aliquam suscipit ipsum malesuada urna ornare, vitae mattis nunc ultrices. Vestibulum eget viverra ipsum. Cras vel molestie quam. Nam vel risus sit amet mauris cursus elementum. Sed vitae nulla sapien. Pellentesque vitae nisi mauris.",
+      "description": "Duis vestibulum massa orci. Morbi sit amet posuere ligula, id fringilla sem. Integer sed enim nulla. Pellentesque nisl tellus, pulvinar in arcu vel, efficitur tristique quam. Integer eget consectetur mauris, ornare tempus ipsum. Morbi faucibus tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ac felis sed mauris condimentum maximus. Suspendisse vitae dui malesuada, dictum tellus nec, mattis erat. Proin neque nisi, dapibus eget ornare sit amet, efficitur ut ante. Phasellus varius neque vestibulum, bibendum metus quis, venenatis erat. Etiam vitae turpis egestas, cursus magna ut, commodo ligula. In sit amet purus et nisi facilisis dignissim. Pellentesque orci turpis, gravida dignissim fringilla id, convallis id nulla.",
+      "image": "https://images.unsplash.com/photo-1539712258047-fd138a7e6737?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "creator": "5f9860476295da40507b425e",
+      "date": "2020-10-27T18:03:10.016Z",
+      "__v": 0
+    }
+  ],
+  "maxPosts": 4
+}

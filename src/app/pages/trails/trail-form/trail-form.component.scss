@@ -3,11 +3,13 @@
   place-content: center;
 }
 
-.ng-valid[required], .ng-valid.required  {
-  border: 2px solid #42A948; /* green */
+.ng-valid[required],
+.ng-valid.required {
+  border: 2px solid #42a948; /* green */
 }
 
-.ng-invalid:not(form), #error {
+.ng-invalid:not(form),
+#error {
   border: 2px solid var(--warning); /* red */
 }
 
@@ -74,7 +76,7 @@ p {
   width: var(--image-width);
   height: calc(var(--image-width) / var(--image-ratio));
   margin-bottom: 20px;
-  
+
   img {
     object-fit: cover;
     width: 100%;
@@ -96,11 +98,11 @@ p {
   margin-right: 10px;
 }
 
-.error-container {
+.errors {
   height: 20px;
 }
 
-.location-error-container {
+.errors.location {
   height: 40px;
 }
 

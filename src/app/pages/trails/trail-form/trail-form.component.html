@@ -4,15 +4,15 @@
   <div class='input-container'>
     <input name="name" #name="ngModel" id="name" [(ngModel)]="trail.name" type="text" placeholder="Enter a name"
       maxLength='20' required />
-    <div class='error-container'>
-      <p [hidden]="name.valid || name.pristine">Name is required</p>
+    <div class='errors'>
+      <p [hidden]="name.valid || name.untouched">Name is required</p>
     </div>
   </div>
 
   <div class='input-container'>
     <textarea class='preview' name="preview" [(ngModel)]="trail.preview" #preview="ngModel"
       placeholder="Enter a short preview of the trail description" maxLength="200" required></textarea>
-    <div class='error-container'>
+    <div class='errors'>
       <p [hidden]="preview.valid || preview.untouched">Preview Is Required.</p>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <div class='input-container'>
     <textarea class='description' name="description" [(ngModel)]="trail.description" #description="ngModel"
       placeholder="Enter a full description" maxLength="800" required></textarea>
-    <div class='error-container'>
+    <div class='errors'>
       <p [hidden]="description.valid || description.untouched">Description Is Required.</p>
     </div>
   </div>
@@ -29,7 +29,7 @@
     <input name="image" [(ngModel)]='trail.image' type="text" placeholder="Enter URL to Cover Image" #image="ngModel"
       required
       pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
-    <div class='error-container'>
+    <div class='errors'>
       <div *ngIf="image.errors?.required">
         <p [hidden]="image.valid || image.untouched">Image Url Is Required.</p>
       </div>
@@ -54,7 +54,7 @@
         min="-90" max="90" required #latitude="ngModel">
     </div>
 
-    <div class='location-error-container'>
+    <div class='errors location'>
       <div *ngIf="longitude.errors?.required">
         <p [hidden]="latitude.untouched || longitude.untouched">Longitude Is Required.</p>
       </div>
