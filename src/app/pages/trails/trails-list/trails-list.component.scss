@@ -73,9 +73,9 @@ p {
 }
 
 .add-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  top: 130px;
+  left: calc(95% - 640px);
   width: 40px;
   height: 40px;
   font-size: 30px;
@@ -86,7 +86,7 @@ p {
   justify-content: center;
   align-content: center;
   display: grid;
-  z-index: 10;
+  z-index: 100;
 }
 
 .add-btn:hover {
