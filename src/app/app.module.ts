@@ -12,10 +12,11 @@ import { FormsModule } from '@angular/forms'
 import { AuthInterceptor } from './auth/auth-interceptor'
 import { checkCoordinatesValidatorDirective } from './utils/custom-validators/checkCoordinates'
 import { TrailsListComponent } from './pages/trails/trails-list/trails-list.component'
-import { TrailComponent } from './pages/trails/trail/trail.component';
-import { TrailMapComponent } from './components/trail-map/trail-map.component';
+import { TrailComponent } from './pages/trails/trail/trail.component'
 import { TreesComponent } from './components/svgs/trees/trees.component'
-
+import { AngularFittextModule } from 'angular-fittext'
+import { TrailListMapComponent } from './components/trail-list-map/trail-list-map.component';
+import { GmapsComponent } from './components/gmaps/gmaps.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,17 +26,24 @@ import { TreesComponent } from './components/svgs/trees/trees.component'
     TrailsListComponent,
     checkCoordinatesValidatorDirective,
     TrailComponent,
-    TrailMapComponent,
-    TreesComponent
+    TrailListMapComponent,
+
+    TreesComponent,
+
+    GmapsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    AngularFittextModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    // { provide: window, useValue: window }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

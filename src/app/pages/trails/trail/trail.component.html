@@ -1,18 +1,29 @@
-<div *ngIf="trail" class="container">
-  <h1>{{ trail.name }}</h1>
+<div class="container">
+  <div *ngIf="trail" class="title fit-text">
+    <h1 fittext>{{ trail.name }}</h1>
+  </div>
 
-  <h5>Description</h5>
-  <p>{{ trail.description }}</p>
+  <img
+    *ngIf="trail"
+    class="banner-image"
+    [src]="trail.image"
+    alt="trail.name"
+  />
+  <div *ngIf="trail" class="description fit-text">
+    <p>
+      {{ trail.description }}
+    </p>
+  </div>
 
-  <h5>Location</h5>
-  <p>{{ trail.location }}</p>
+  <div #map class="map"></div>
 
-  <img [src]="trail.image" alt="trail.name" />
+  <!-- <h5>Location</h5> -->
+  <!-- <p>{{ trail.location }}</p> -->
 
-  <!-- <app-trail-map [trail]="trail"></app-trail-map> -->
-
-  <div *ngIf="trail.creator === userId">
+  <!-- <div *ngIf="trail.creator === userId">
     <button (click)="onDelete()">Delete</button>
     <button [routerLink]="['/trails/edit', trail._id]">Edit</button>
-  </div>
+  </div>  -->
+  <!-- </div> -->
+  <!-- </div> -->
 </div>

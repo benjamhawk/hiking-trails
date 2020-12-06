@@ -9,10 +9,21 @@ import { TrailComponent } from './pages/trails/trail/trail.component'
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'trails', component: TrailsListComponent },
-  { path: 'trails/create', component: TrailFormComponent, canActivate: [AuthGuard] },
+  {
+    path: 'trails/create',
+    component: TrailFormComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'trails/:id', component: TrailComponent },
-  { path: 'trails/edit/:id', component: TrailFormComponent, canActivate: [AuthGuard] },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule) },
+  {
+    path: 'trails/edit/:id',
+    component: TrailFormComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]
 
@@ -21,4 +32,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [AuthGuard]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

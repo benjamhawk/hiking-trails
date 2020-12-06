@@ -1,7 +1,45 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: 40px;
+  grid-template-columns: repeat(12, 1fr);
+  // grid-template-rows: 40px;
   justify-items: center;
   align-items: center;
+}
+
+.title {
+  text-transform: uppercase;
+
+  h1 {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+.fit-text {
+  grid-column: 4/-4;
+  width: 100%;
+}
+
+.description {
+  margin-top: 20px;
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.banner-image {
+  grid-column: 4/-4;
+
+  width: 100%;
+  height: 500px;
+  justify-self: center;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.map {
+  grid-column: 4/-4;
+  // grid-row: 4/5;
+  width: 100%;
+  height: 400px;
 }

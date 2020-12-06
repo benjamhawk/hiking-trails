@@ -19,7 +19,7 @@
 
   <div class='input-container'>
     <textarea class='description' name="description" [(ngModel)]="trail.description" #description="ngModel"
-      placeholder="Enter a full description" maxLength="800" required></textarea>
+      placeholder="Enter a full description" maxLength="2000" required></textarea>
     <div class='errors'>
       <p [hidden]="description.valid || description.untouched">Description Is Required.</p>
     </div>
