@@ -13,24 +13,21 @@ export class TrailsService {
   private serverError$ = new Subject<string>()
   private trails: Trail[] = []
   private trailsUpdated = new Subject<{ trails: Trail[]; trailCount: number }>()
-  constructor (
-    private http: HttpClient,
-    private router: Router
-  ) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  getErr () {
+  getErr() {
     return this.serverError$.asObservable()
   }
 
-  createTrail (trail: Trail) {
+  createTrail(trail: Trail) {
     return this.http.post(`${environment.apiUrl}/trails`, { ...trail })
   }
 
-  updateTrail (id: string, trail: Trail) {
+  updateTrail(id: string, trail: Trail) {
     return this.http.put(`${environment.apiUrl}/trails/${id}`, { ...trail })
   }
 
-  getTrails (postsPerPage: number, currentPage: number) {
+  getTrails(postsPerPage: number, currentPage: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`
     this.http
       .get<{ message: string; posts: any; maxPosts: number }>(
@@ -63,18 +60,23 @@ export class TrailsService {
       })
   }
 
-  getTrail (id: string) {
-    return this.http.get<Trail>(
-      `${environment.apiUrl}/trails/${id}`
-    )
+  getTrail(id: string) {
+    return this.http.get<Trail>(`${environment.apiUrl}/trails/${id}`)
   }
 
-  getFetchedTrails () {
+  getFetchedTrails() {
     return this.trailsUpdated.asObservable()
   }
 
-  deleteTrail (id: string) {
-    return this.http.delete(`${environment.apiUrl}/trails/${id}`)
+  fetchCoordinates(city: string, state: string) {
+    return this.http.get(
+      `${environment.apiUrl}/trails/coordinates/${city}/${state}`
+    )
+  }
+
+  deleteTrail(id: string) {
+    return this.http
+      .delete(`${environment.apiUrl}/trails/${id}`)
       .subscribe(res => {
         console.log(res)
         this.router.navigate(['/trails'])

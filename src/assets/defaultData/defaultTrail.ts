@@ -1,4 +1,4 @@
-import { Trail } from 'src/app/models/trail.model';
+import { Trail } from 'src/app/models/trail.model'
 
 export const defaultTrail: Trail = {
   name: '',
@@ -6,6 +6,8 @@ export const defaultTrail: Trail = {
   description: '',
   image: '',
   location: [],
+  city: '',
+  state: '',
   creator: '',
   date: '',
   _id: ''

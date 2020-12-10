@@ -1,72 +1,120 @@
-<form (ngSubmit)="onSubmit(trailForm)" #trailForm="ngForm" appCheckCoordinates>
+<form (ngSubmit)="onSubmit(trailForm)" #trailForm="ngForm">
   <h1>{{ isEditMode ? 'Edit Trail' : 'Create New Trail' }}</h1>
 
-  <div class='input-container'>
-    <input name="name" #name="ngModel" id="name" [(ngModel)]="trail.name" type="text" placeholder="Enter a name"
-      maxLength='20' required />
-    <div class='errors'>
+  <div class="input-container">
+    <input
+      name="name"
+      #name="ngModel"
+      id="name"
+      [(ngModel)]="trail.name"
+      type="text"
+      placeholder="Enter a name"
+      maxLength="20"
+      required
+    />
+    <div class="errors">
       <p [hidden]="name.valid || name.untouched">Name is required</p>
     </div>
   </div>
 
-  <div class='input-container'>
-    <textarea class='preview' name="preview" [(ngModel)]="trail.preview" #preview="ngModel"
-      placeholder="Enter a short preview of the trail description" maxLength="200" required></textarea>
-    <div class='errors'>
+  <div class="input-container">
+    <textarea
+      class="preview"
+      name="preview"
+      [(ngModel)]="trail.preview"
+      #preview="ngModel"
+      placeholder="Enter a short preview of the trail description"
+      maxLength="200"
+      required
+    ></textarea>
+    <div class="errors">
       <p [hidden]="preview.valid || preview.untouched">Preview Is Required.</p>
     </div>
   </div>
 
-  <div class='input-container'>
-    <textarea class='description' name="description" [(ngModel)]="trail.description" #description="ngModel"
-      placeholder="Enter a full description" maxLength="2000" required></textarea>
-    <div class='errors'>
-      <p [hidden]="description.valid || description.untouched">Description Is Required.</p>
+  <div class="input-container">
+    <textarea
+      class="description"
+      name="description"
+      [(ngModel)]="trail.description"
+      #description="ngModel"
+      placeholder="Enter a full description"
+      maxLength="2000"
+      required
+    ></textarea>
+    <div class="errors">
+      <p [hidden]="description.valid || description.untouched">
+        Description Is Required.
+      </p>
     </div>
   </div>
 
-  <div class='input-container'>
-    <input name="image" [(ngModel)]='trail.image' type="text" placeholder="Enter URL to Cover Image" #image="ngModel"
+  <div class="input-container">
+    <input
+      name="image"
+      [(ngModel)]="trail.image"
+      type="text"
+      placeholder="Enter URL to Cover Image"
+      #image="ngModel"
       required
-      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
-    <div class='errors'>
+      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+    />
+    <div class="errors">
       <div *ngIf="image.errors?.required">
         <p [hidden]="image.valid || image.untouched">Image Url Is Required.</p>
       </div>
       <div *ngIf="image.errors?.pattern">
-        <p [hidden]="image.valid || image.untouched">Enter a Valid URL beginning with http or https</p>
+        <p [hidden]="image.valid || image.untouched">
+          Enter a Valid URL beginning with http or https
+        </p>
       </div>
     </div>
   </div>
 
-  <div class='image-container'>
+  <div class="image-container">
     <p>Image Preview:</p>
     <div class="image-preview">
-      <img *ngIf='trail.image' [src]="trail.image" />
+      <img *ngIf="trail.image" [src]="trail.image" />
     </div>
   </div>
 
-  <div class='input-container'>
+  <div class="input-container">
     <div class="location-container">
-      <input class='location-input' name="longitude" [(ngModel)]="trail.location[0]" type="number"
-        placeholder="Longitude" min="-180" max="180" #longitude="ngModel" required>
-      <input class='location-input' name="latitude" [(ngModel)]="trail.location[1]" type="number" placeholder="Latitude"
-        min="-90" max="90" required #latitude="ngModel">
+      <input
+        class="location-input"
+        name="city"
+        [(ngModel)]="trail.city"
+        type="text"
+        placeholder="City"
+        maxLength="40"
+        #city="ngModel"
+        required
+      />
+
+      <select
+        id="state-select"
+        [(ngModel)]="trail.state"
+        #state="ngModel"
+        name="state"
+        required
+      >
+        <option *ngFor="let state of stateArr">{{ state }}</option>
+      </select>
     </div>
 
-    <div class='errors location'>
-      <div *ngIf="longitude.errors?.required">
-        <p [hidden]="latitude.untouched || longitude.untouched">Longitude Is Required.</p>
-      </div>
-      <div *ngIf="latitude.errors?.required">
-        <p [hidden]="latitude.untouched || longitude.untouched">Latitude Is Required.</p>
-      </div>
-      <div *ngIf="trailForm.errors?.invalidCoordinates">
-        <p [hidden]="latitude.untouched || longitude.untouched">Longitude must be between -180 and 180.
-          Latitude must be between -90 and 90.</p>
-      </div>
+    <div class="errors">
+      <p [hidden]="city.valid || city.untouched">City is required</p>
+    </div>
+    <div class="errors">
+      <p [hidden]="state.valid || state.untouched">State is required</p>
     </div>
   </div>
 
-    <button class="btn" type="submit" [disabled]="trailForm.invalid">{{ isEditMode ? 'Save' : 'Create' }}</button>
+  <button class="btn" type="submit" [disabled]="trailForm.invalid">
+    {{ isEditMode ? 'Save' : 'Create' }}
+  </button>
 </form>
+
+<div style="margin-bottom: 20px" class="errors">
+  <p *ngIf="error">{{ error }}</p>
+</div>
