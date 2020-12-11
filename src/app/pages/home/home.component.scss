@@ -1,5 +1,6 @@
 :host {
   display: grid;
+  color: #fff;
 }
 
 .image-container {
@@ -11,7 +12,7 @@
 }
 
 .image-container::after {
-  background-image: url('https://images.unsplash.com/photo-1539712258047-fd138a7e6737?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-image: url('https://live.staticflickr.com/2891/33833709921_bec1f88a9b_k.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -21,14 +22,14 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.6;
+  // opacity: 0.6;
   z-index: -1;
 }
 .page-container {
   height: 40%;
-  width: 450px;
+  width: 500px;
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 150px 1fr;
   align-items: end;
   justify-items: center;
   align-self: center;
@@ -38,16 +39,25 @@
 h3 {
   font-size: 3rem;
   margin: 0;
+  justify-self: start;
+
+  text-shadow: 2px 2px #00000070;
 }
 
 app-trees {
-  justify-self: end;
+  justify-self: center;
   align-self: center;
   grid-row: span 2;
 }
 
 p {
   align-self: start;
+  justify-self: start;
+  padding-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  text-shadow: 2px 2px #00000070;
 }
 
 button {
@@ -55,9 +65,9 @@ button {
   width: 150px;
   height: 40px;
   font-size: 1.2rem;
-  border-radius: 3px;
-  outline: black 1px;
+  border-radius: 9px;
+  align-self: center;
   cursor: pointer;
-  background-color: var(--success-btn);
-  color: white;
+  background-color: #fff;
+  color: black;
 }

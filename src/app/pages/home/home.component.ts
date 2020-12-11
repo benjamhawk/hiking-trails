@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { Subscription } from 'rxjs'
-import { AuthService } from 'src/app/auth/auth.service'
+import { TrailsService } from 'src/app/services/trails.service'
 
 @Component({
   selector: 'app-home',
@@ -12,17 +12,15 @@ export class HomeComponent {
 
   private nameSub: Subscription
 
-  constructor (private authService: AuthService) { }
+  constructor(private trailsService: TrailsService) {}
 
-  ngOnInit () {
-    this.nameSub = this.authService.getName()
-      .subscribe(name => {
-        this.userName = name
-      })
+  ngOnInit() {
+    // this api call serves no purpose other than to wake up the heroku
+    // api server when a visior visits the homepage
+    this.trailsService.getTrails(4, 1)
   }
 
-  ngOnDestory () {
+  ngOnDestory() {
     this.nameSub.unsubscribe()
   }
-
 }
