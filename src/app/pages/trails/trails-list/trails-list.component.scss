@@ -98,3 +98,120 @@ p {
   transform: translate(1px, 1px);
   outline: none;
 }
+
+@media (max-width: 1400px) {
+  .page-container {
+    grid-template-columns: 1fr 500px;
+  }
+
+  .add-btn {
+    left: calc(95% - 540px);
+  }
+}
+
+@media (max-width: 1300px) {
+  .page-container {
+    grid-template-columns: 1fr 400px;
+  }
+
+  .add-btn {
+    left: calc(95% - 440px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .card {
+    height: 200px;
+  }
+  .cards-container {
+    grid-template: 200px / 1fr;
+  }
+
+  img {
+    --image-width: 200px;
+
+    width: var(--image-width);
+    height: calc(var(--image-width) / var(--image-ratio));
+  }
+}
+
+@media (max-width: 1100px) {
+  .page-container {
+    grid-template-columns: 1fr 300px;
+  }
+
+  .add-btn {
+    left: calc(95% - 340px);
+  }
+}
+
+@media (max-width: 1000px) {
+  app-trail-list-map {
+    display: none;
+  }
+
+  .page-container {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn {
+    left: calc(95% - 50px);
+    top: 110px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cards-container {
+    grid-template: 150px / 1fr;
+  }
+
+  .card {
+    height: 150px;
+  }
+
+  img {
+    --image-width: 150px;
+
+    width: var(--image-width);
+    height: calc(var(--image-width) / var(--image-ratio));
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .cards-container {
+    grid-template: 120px / 1fr;
+  }
+
+  .card {
+    height: 120px;
+  }
+
+  img {
+    --image-width: 100px;
+
+    width: var(--image-width);
+    height: calc(var(--image-width) / var(--image-ratio));
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .view-btn {
+    font-size: 20px;
+  }
+
+  .add-btn {
+    transform: scale(0.7);
+    top: 100px;
+    left: calc(95% - 40px);
+  }
+
+  p {
+    font-size: 0.6rem;
+    max-width: 90%;
+  }
+}
