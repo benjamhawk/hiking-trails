@@ -2,4 +2,8 @@ svg {
   height: 120px;
   fill: white;
   filter: url(#shadow);
+
+  @media (max-width: 700px) {
+    height: 105px;
+  }
 }
