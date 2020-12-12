@@ -14,3 +14,9 @@
 router-outlet {
   display: none;
 }
+
+@media (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+}
