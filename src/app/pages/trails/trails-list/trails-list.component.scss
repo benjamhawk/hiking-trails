@@ -171,9 +171,6 @@ p {
 
   img {
     --image-width: 150px;
-
-    width: var(--image-width);
-    height: calc(var(--image-width) / var(--image-ratio));
   }
 
   h1 {
@@ -191,9 +188,6 @@ p {
 
   img {
     --image-width: 100px;
-
-    width: var(--image-width);
-    height: calc(var(--image-width) / var(--image-ratio));
   }
 
   h1 {
