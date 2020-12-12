@@ -1,13 +1,29 @@
 :host {
   display: grid;
   place-content: center;
-} 
 
-.ng-valid[required], .ng-valid.required  {
-  border: 2px solid #42A948; /* green */
+  --form-width: 500px;
+  --register-height: 500px;
+  --input-height: 40px;
+
+  @media (max-width: 700px) {
+    --form-width: 400px;
+  }
+
+  @media (max-width: 500px) {
+    --form-width: 300px;
+    --register-height: 400px;
+    --input-height: 35px;
+  }
 }
 
-.ng-invalid:not(form), #error {
+.ng-valid[required],
+.ng-valid.required {
+  border: 2px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form),
+#error {
   border: 2px solid var(--warning); /* red */
 }
 
@@ -22,13 +38,13 @@
 }
 
 .login-form {
-  width: 500px;
+  width: var(--form-width);
   height: 300px;
 }
 
 .register-form {
-  width: 500px;
-  height: 500px;
+  width: var(--form-width);
+  height: var(--register-height);
 }
 
 form {
@@ -46,7 +62,7 @@ form {
 
 input {
   justify-self: center;
-  height: 40px;
+  height: var(--input-height);
   font-size: 1.2rem;
   width: 80%;
   border-radius: 5px;
