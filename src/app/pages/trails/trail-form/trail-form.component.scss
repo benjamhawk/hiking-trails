@@ -1,6 +1,18 @@
 :host {
   display: grid;
   place-content: center;
+
+  --form-width: 500px;
+  --input-height: 20px;
+
+  @media (max-width: 700px) {
+    --form-width: 400px;
+  }
+
+  @media (max-width: 500px) {
+    --form-width: 300px;
+    --input-height: 18px;
+  }
 }
 
 .ng-valid[required],
@@ -21,7 +33,7 @@ h1 {
 
 form {
   height: auto;
-  width: 500px;
+  width: var(--form-width);
   display: grid;
   border: 2px solid #00000080;
   border-radius: 3px;
@@ -31,7 +43,7 @@ form {
 
 input {
   justify-self: center;
-  height: 20px;
+  height: var(--input-height);
   font-size: 0.8rem;
   width: 100%;
   border-radius: 5px;
