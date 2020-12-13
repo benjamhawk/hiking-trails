@@ -1,5 +1,5 @@
 <div class="page-container">
-  <div class="cards-container">
+  <div *ngIf="trails.length > 0" class="cards-container">
     <fa-icon
       class="add-btn"
       [icon]="addBtn"
@@ -18,6 +18,11 @@
       </div>
       <fa-icon class="view-btn" [icon]="viewMoreBtn"></fa-icon>
     </div>
+  </div>
+
+  <div class="no-trail-container" *ngIf="trails.length <= 0">
+    <h4>There are no current trails to show.</h4>
+    <button [routerLink]="['/trails/create']">Create a trail</button>
   </div>
   <app-trail-list-map
     *ngIf="trails.length > 0"

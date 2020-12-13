@@ -11,7 +11,7 @@
   <nav class="items-container">
     <a routerLink="/home" class="nav-item">Home</a>
     <a routerLink="/trails" class="nav-item">Explore</a>
-    <!-- <a class="nav-item" (click)="deleteUser()">About</a> -->
+    <a class="nav-item" routerLink="/myTrails">My Trails</a>
     <a routerLink="/auth/login" *ngIf="!userIsAuthenticated" class="nav-item"
       >Login</a
     >
@@ -40,7 +40,14 @@
               >Explore</a
             >
           </li>
-          <!-- <li><a class="nav-item" (click)="deleteUser()">About</a></li> -->
+          <li>
+            <a
+              class="nav-item"
+              routerLink="/myTrails"
+              (click)="toggleMobileMenu()"
+              >My Trails</a
+            >
+          </li>
           <li *ngIf="!userIsAuthenticated">
             <a
               routerLink="/auth/login"

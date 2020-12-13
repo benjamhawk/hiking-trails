@@ -99,6 +99,24 @@ p {
   outline: none;
 }
 
+.no-trail-container {
+  width: 20%;
+  height: 20%;
+  grid-column: 1/-1;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+
+  button {
+    box-shadow: none;
+    background: var(--success-btn);
+    color: white;
+    border-style: none;
+    box-shadow: 2px 2px 3px #00000040;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 1400px) {
   .page-container {
     grid-template-columns: 1fr 500px;
@@ -175,6 +193,11 @@ p {
 
   h1 {
     font-size: 1.5rem;
+  }
+
+  .no-trail-container {
+    width: 80%;
+    align-self: start;
   }
 }
 @media (max-width: 500px) {

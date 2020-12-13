@@ -27,11 +27,13 @@ export class TrailsService {
     return this.http.put(`${environment.apiUrl}/trails/${id}`, { ...trail })
   }
 
-  getTrails(postsPerPage: number, currentPage: number) {
+  getTrails(postsPerPage: number, currentPage: number, isMyTrails: boolean) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`
     this.http
       .get<{ message: string; posts: any; maxPosts: number }>(
-        `${environment.apiUrl}/trails${queryParams}`
+        `${environment.apiUrl}/${
+          isMyTrails ? 'trails/myTrails' : 'trails'
+        }${queryParams}`
       )
       .pipe(
         map(trailData => {

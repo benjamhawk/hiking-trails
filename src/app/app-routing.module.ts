@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'trails', component: TrailsListComponent },
   {
+    path: 'myTrails',
+    component: TrailsListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'trails/create',
     component: TrailFormComponent,
     canActivate: [AuthGuard]
