@@ -1,11 +1,17 @@
 <div class="nav-container">
-  <div routerLink="/home" class="nav-logo">
+  <div routerLink="/home" class="nav-logo" (click)="toggleMobileMenu()">
     <fa-icon [icon]="logo"></fa-icon>
+  </div>
+  <div
+    class="hamburger {{ isMobileMenuShowing ? 'mobileMenuShowing' : '' }}"
+    (click)="toggleMobileMenu()"
+  >
+    <div></div>
   </div>
   <nav class="items-container">
     <a routerLink="/home" class="nav-item">Home</a>
     <a routerLink="/trails" class="nav-item">Explore</a>
-    <a class="nav-item" (click)="deleteUser()">About</a>
+    <!-- <a class="nav-item" (click)="deleteUser()">About</a> -->
     <a routerLink="/auth/login" *ngIf="!userIsAuthenticated" class="nav-item"
       >Login</a
     >
@@ -15,5 +21,47 @@
     <a (click)="onLogout()" *ngIf="userIsAuthenticated" class="nav-item"
       >Logout</a
     >
+  </nav>
+
+  <nav class="items-container-mobile">
+    <div>
+      <div>
+        <ul>
+          <li>
+            <a routerLink="/home" (click)="toggleMobileMenu()" class="nav-item"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/trails"
+              (click)="toggleMobileMenu()"
+              class="nav-item"
+              >Explore</a
+            >
+          </li>
+          <!-- <li><a class="nav-item" (click)="deleteUser()">About</a></li> -->
+          <li *ngIf="!userIsAuthenticated">
+            <a
+              routerLink="/auth/login"
+              class="nav-item"
+              (click)="toggleMobileMenu()"
+              >Login</a
+            >
+          </li>
+          <li *ngIf="!userIsAuthenticated">
+            <a
+              routerLink="/auth/register"
+              class="nav-item"
+              (click)="toggleMobileMenu()"
+              >Sign Up</a
+            >
+          </li>
+          <li *ngIf="userIsAuthenticated">
+            <a (click)="onLogout()" class="nav-item">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 </div>

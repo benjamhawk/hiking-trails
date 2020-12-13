@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   logo = faMountain
   userIsAuthenticated: boolean
   private authListenerSub: Subscription
+  isMobileMenuShowing: boolean = false
 
   constructor(private authService: AuthService) {}
 
@@ -26,10 +27,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.authService.logout()
+    this.toggleMobileMenu()
   }
 
-  deleteUser() {
-    this.authService.deleteUser()
+  toggleMobileMenu() {
+    this.isMobileMenuShowing = !this.isMobileMenuShowing
   }
 
   ngOnDestroy() {
