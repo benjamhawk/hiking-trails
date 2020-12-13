@@ -17,7 +17,7 @@ export class HomeComponent {
   ngOnInit() {
     // this api call serves no purpose other than to wake up the heroku
     // api server when a visior visits the homepage
-    this.trailsService.getTrails(4, 1)
+    this.trailsService.getTrails(4, 1, false)
   }
 
   ngOnDestory() {

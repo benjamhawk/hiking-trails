@@ -1,9 +1,9 @@
 :root {
-  --green: #5F784A;
-  --red:  #a94442;
+  --green: #5f784a;
+  --red: #a94442;
   --white: #ffffff;
-  --brown: #816A53;
-  --black: #000000; 
+  --brown: #816a53;
+  --black: #000000;
 
   --background-default: var(--green);
   --background-nav: var(--white);
@@ -21,6 +21,7 @@ body {
   padding: 0;
 }
 
-body, textarea {
+body,
+textarea {
   font-family: 'Raleway', sans-serif;
 }

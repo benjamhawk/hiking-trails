@@ -19,6 +19,7 @@ export class TrailComponent implements OnInit {
   trailId: string
   trail: Trail
   userId: string
+  isCreator: boolean
 
   constructor(
     private trailsService: TrailsService,
@@ -56,9 +57,9 @@ export class TrailComponent implements OnInit {
       })
     })
 
-    this.authSub = this.authService
-      .getUserId()
-      .subscribe(id => (this.userId = id))
+    this.authSub = this.authService.getUserId().subscribe(id => {
+      this.userId = id
+    })
   }
 
   onDelete() {

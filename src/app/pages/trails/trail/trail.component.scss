@@ -55,3 +55,28 @@
   height: 400px;
   margin-bottom: 40px;
 }
+
+.edit-buttons {
+  grid-column: var(--container-grid-col);
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+
+  button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    box-shadow: none;
+    color: white;
+    border-style: none;
+    box-shadow: 2px 2px 3px #00000040;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .delete-btn {
+    background: var(--warning);
+  }
+  .edit-btn {
+    background: var(--success-btn);
+  }
+}

@@ -3,6 +3,13 @@
     <h1 fittext>{{ trail.name }}</h1>
   </div>
 
+  <div class="edit-buttons" *ngIf="trail.creator === userId">
+    <button class="edit-btn" [routerLink]="['/trails/edit', trail._id]">
+      Edit
+    </button>
+    <button class="delete-btn" (click)="onDelete()">Delete</button>
+  </div>
+
   <img
     *ngIf="trail"
     class="banner-image"
@@ -16,14 +23,4 @@
   </div>
 
   <div #map class="map"></div>
-
-  <!-- <h5>Location</h5> -->
-  <!-- <p>{{ trail.location }}</p> -->
-
-  <!-- <div *ngIf="trail.creator === userId">
-    <button (click)="onDelete()">Delete</button>
-    <button [routerLink]="['/trails/edit', trail._id]">Edit</button>
-  </div>  -->
-  <!-- </div> -->
-  <!-- </div> -->
 </div>
