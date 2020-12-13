@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { NavigationEnd, Router } from '@angular/router'
 import { AuthService } from './auth/auth.service'
 
 @Component({
@@ -8,10 +9,21 @@ import { AuthService } from './auth/auth.service'
 })
 export class AppComponent {
   title = 'campgrounds'
+  isHomePage = false
 
-  constructor (private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit () {
+  ngOnInit() {
     this.authService.autoAuthUser()
+
+    this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        if (e.url === '/home') {
+          this.isHomePage = true
+        } else {
+          this.isHomePage = false
+        }
+      }
+    })
   }
 }
